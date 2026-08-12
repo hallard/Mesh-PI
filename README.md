@@ -83,6 +83,43 @@ Then set the LoRa region and node role from any Meshtastic client, or the CLI:
 meshtastic --host localhost --set lora.region EU_868 --set device.role ROUTER
 ```
 
+## Status LEDs
+
+The two on-board LEDs give an at-a-glance health status, blinked from GPIO by a small `systemd` service:
+
+- 🟢 **Green (GPIO18)** blinks when WiFi *and* `meshtasticd` are both up
+- 🔴 **Red (GPIO17)** blinks when either one is down
+
+The script is [`scripts/monitoring-led.sh`](scripts/monitoring-led.sh) (uses `gpioset` from libgpiod v2).
+
+### Install
+
+```bash
+# 1. Copy the script in place
+sudo install -m 0755 scripts/monitoring-led.sh /usr/local/bin/monitoring-led.sh
+
+# 2. Create the systemd service
+sudo tee /etc/systemd/system/monitoring-led.service > /dev/null <<'EOF'
+[Unit]
+Description=Mesh-PI monitoring LEDs (green=OK, red=fault)
+After=NetworkManager.service meshtasticd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/monitoring-led.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# 3. Enable + start (runs at every boot)
+sudo systemctl enable --now monitoring-led
+```
+
+Check with `systemctl status monitoring-led` — the green LED should start blinking. The `gpio=17,18=op,dl` line in `config.txt` above keeps both LEDs off during boot, before the service takes over.
+
 ## License
 
 This design is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa] — build it, tweak it, share it, but **not for commercial use**.
