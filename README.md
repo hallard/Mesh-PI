@@ -1,4 +1,4 @@
-# Mesh-PI — The tiniest SX1262 LoRa board for Raspberry Pi
+# Mesh-PI — The tiniest LoRa board for Raspberry Pi
 
 [![Meshtastic compatible](https://img.shields.io/badge/Meshtastic-compatible-67ea94?logo=meshtastic&logoColor=white)](https://meshtastic.org)
 
