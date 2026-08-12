@@ -18,6 +18,15 @@ It's designed to run [Meshtastic][meshtastic] with the Linux-native daemon [`mes
 - Powered straight from the Pi **3.3 V** rail, with proper bulk + low-ESR decoupling (100 µF tantalum + 47 µF MLCC + 100 nF)
 - Designed for **`meshtasticd`** (Meshtastic Linux-native)
 
+## Design choices
+
+Mesh-PI is deliberately **minimal and purpose-built for a static router node** — small, cheap, efficient, and it does exactly that job, perfectly.
+
+- **No GPS — on purpose.** Dropped to save space and cost. A fixed router doesn't move, so its location is set once as a *fixed position* in Meshtastic; an on-board GPS would only add size, price and power draw for nothing.
+- **22 dBm — on purpose.** The board uses the SX1262's native **22 dBm** rather than a 1 W (30 dBm) amplified front-end. Going 1 W would mean tapping the Pi **5 V** rail and adding a dedicated 3.3 V regulator for the extra current — which would blow up the whole "tiny shield" idea. At 22 dBm the module runs **straight off the Pi 3.3 V**, stays cool, and in EU868 the output is capped to the legal limit anyway.
+
+Small, focused, and it just works. 🎯
+
 ## Schematics
 
 <img src="images/MeshPi-sch.png" alt="Schematics">
