@@ -85,13 +85,15 @@ meshtastic --host localhost --set lora.region EU_868 --set device.role ROUTER
 
 ## License
 
-You can do whatever you like with this design.
+This design is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa] — build it, tweak it, share it, but **not for commercial use**.
+
+[![License: CC BY-NC-SA 4.0][cc-badge]][cc-by-nc-sa]
 
 ## Lazy building your own?
 
-If I put a batch of these on [Tindie][tindie], you'll be able to order one there (EU only).
+If I put a batch of these on [Lectronz][lectronz], you'll be able to order one there.
 
-<a href="https://www.tindie.com/stores/hallard/"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png" alt="I sell on Tindie" width="150" height="78"></a>
+[![Available on Lectronz](https://img.shields.io/badge/Available_on-Lectronz-6d3be4)][lectronz]
 
 ## Misc
 
@@ -102,5 +104,7 @@ News and other projects on my [blog][blog].
 [reticulum]: https://reticulum.network/
 [radiolib]: https://github.com/jgromes/RadioLib
 [e22]: https://www.cdebyte.com/products/E22-900MM22S
-[tindie]: https://www.tindie.com/stores/hallard/
+[lectronz]: https://lectronz.com/stores/hallard
+[cc-by-nc-sa]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-badge]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [blog]: https://hallard.me
