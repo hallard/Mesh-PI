@@ -31,18 +31,18 @@ Small, focused, and it just works. 🎯
 
 <img src="images/MeshPi-sch.png" alt="Schematics">
 
-SPI is the classic MOSI / MISO / SCLK. **NSS (chip-select) sits on GPIO26** — a free GPIO, *not* CE0 — to avoid the `cs-gpios` conflict of recent Raspberry Pi kernels (meshtasticd / RadioLib drives it directly). The RF switch uses **DIO2 for TX** (`DIO2_AS_RF_SWITCH`) and a GPIO for RX.
+SPI is the classic MOSI / MISO / SCLK. **NSS (chip-select) sits on GPIO25** — a free GPIO, *not* CE0 — to avoid the `cs-gpios` conflict of recent Raspberry Pi kernels (meshtasticd / RadioLib drives it directly). The RF switch uses **DIO2 for TX** (`DIO2_AS_RF_SWITCH`) and a GPIO for RX.
 
 ```
 Raspberry PI            E22-900MM22S (SX1262)
-   GPIO26  <---->  NSS   (chip select)
+   GPIO25  <---->  NSS   (chip select)
    SCLK    <---->  SCK
    MOSI    <---->  MOSI
    MISO    <---->  MISO
    GPIO23  <---->  NRST  (reset, active low)
-   GPIO22  <---->  BUSY
+   GPIO27  <---->  BUSY
    GPIO24  <---->  DIO1  (IRQ)
-   GPIO27  <---->  RXEN
+   GPIO22  <---->  RXEN
    DIO2    <---->  TXEN  (tied together -> DIO2_AS_RF_SWITCH)
    DIO3    :  not connected  (32 MHz XTAL on module, no TCXO)
 
@@ -64,11 +64,11 @@ Install the Meshtastic Linux daemon (see the [official docs][meshtasticd]), then
 ```yaml
 Lora:
   Module: sx1262
-  CS: 26
+  CS: 25
   IRQ: 24
-  Busy: 22
+  Busy: 27
   Reset: 23
-  RXen: 27
+  RXen: 22
   DIO2_AS_RF_SWITCH: true
   # No DIO3_TCXO_VOLTAGE — the E22-900MM22S uses a passive 32 MHz XTAL, not a TCXO
 ```
