@@ -162,7 +162,7 @@ If I put a batch of these on [Lectronz][lectronz], you'll be able to order one t
 News and other projects on my [blog][blog].
 
 [meshtastic]: https://meshtastic.org
-[meshtasticd]: https://meshtastic.org/docs/software/linux-native/
+[meshtasticd]: https://meshtastic.org/docs/software/linux/installation/
 [reticulum]: https://reticulum.network/
 [radiolib]: https://github.com/jgromes/RadioLib
 [e22]: https://www.cdebyte.com/products/E22-900MM22S
