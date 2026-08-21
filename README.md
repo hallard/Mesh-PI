@@ -57,6 +57,12 @@ Raspberry PI         On Board LEDs
 
 <img src="images/MeshPi-bottom.png" alt="Bottom">
 
+## 3D printed case
+
+Need an enclosure? **Finn** designed a neat [Meshtastic Raspberry Pi Zero 2 W case with foot](https://www.printables.com/model/1252555-meshtastic-raspberry-pi-zero-2-w-case-with-foot) on Printables — a simple, stationary enclosure with an integrated stand, purpose-built for a headless Pi Zero 2 W LoRa node (no buttons, GPS or display to cut out). A great way to finish off a Mesh-PI router.
+
+Big thanks to **Finn** for designing and sharing it! 🙏
+
 ## Software — meshtasticd
 
 Install the Meshtastic Linux daemon (see the [official docs][meshtasticd]), then declare the radio in `/etc/meshtasticd/config.yaml`:
