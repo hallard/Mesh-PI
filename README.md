@@ -102,7 +102,7 @@ gpio=23=op,dh
 gpio=17,18=op,dl
 ```
 
-Then set the LoRa region and node role from any Meshtastic client, or the CLI:
+Then set the LoRa region and node role from any Meshtastic client (the phone app), or the [Meshtastic Python CLI](https://meshtastic.org/docs/software/python/cli/installation/) — install it with `pipx install meshtastic`, then:
 
 ```
 meshtastic --host localhost --set lora.region EU_868 --set device.role ROUTER
