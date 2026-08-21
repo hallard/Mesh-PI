@@ -57,6 +57,16 @@ Raspberry PI         On Board LEDs
 
 <img src="images/MeshPi-bottom.png" alt="Bottom">
 
+## Mounting
+
+Mesh-PI is a **partial HAT** — its 2×7 socket plugs onto a **14-pin block of the Pi's 40-pin GPIO header: physical pins 11 → 24**. Position it *exactly* as shown, and it can only go one way:
+
+<img src="images/raspberry_pi_mounting_board.jpg" alt="Mesh-PI position on the Raspberry Pi GPIO header (physical pins 11–24)">
+
+- The socket covers **pins 11–24** — pins **1–10 stay free** on the SD-card side, **25–40 free** on the other side.
+- Mount it **exactly as in the photo above** — don't shift it by a row or plug it in flipped: any offset puts the radio on the wrong pins.
+- Press it **fully and squarely** onto the header *before* powering the Pi.
+
 ## 3D printed case
 
 Need an enclosure? **Finn** designed a neat [Meshtastic Raspberry Pi Zero 2 W case with foot](https://www.printables.com/model/1252555-meshtastic-raspberry-pi-zero-2-w-case-with-foot) on Printables — a simple, stationary enclosure with an integrated stand, purpose-built for a headless Pi Zero 2 W LoRa node (no buttons, GPS or display to cut out). A great way to finish off a Mesh-PI router.
