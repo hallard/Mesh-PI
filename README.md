@@ -23,7 +23,7 @@ It's designed to run [Meshtastic][meshtastic] with the Linux-native daemon [`mes
 Mesh-PI is deliberately **minimal and purpose-built for a static router node** — small, cheap, efficient, and it does exactly that job, perfectly.
 
 - **No GPS — on purpose.** Dropped to save space and cost. A fixed router doesn't move, so its location is set once as a *fixed position* in Meshtastic; an on-board GPS would only add size, price and power draw for nothing.
-- **22 dBm — on purpose.** The board uses the SX1262's native **22 dBm** rather than a 1 W (30 dBm) amplified front-end. Going 1 W would mean tapping the Pi **5 V** rail and adding a dedicated 3.3 V regulator for the extra current — which would blow up the whole "tiny shield" idea. At 22 dBm the module runs **straight off the Pi 3.3 V** and stays cool. The E22-900 covers **850–930 MHz**, so it works in **EU868** (where 22 dBm is capped to the legal limit) as well as **US915** and the other 900 MHz regions — where the full 22 dBm is usable.
+- **22 dBm — on purpose.** The board uses the SX1262's native **22 dBm** rather than a 1 W (30 dBm) amplified front-end. Going 1 W would mean tapping the Pi **5 V** rail and adding a dedicated 3.3 V regulator for the extra current — which would blow up the whole "tiny shield" idea. At 22 dBm the module runs **straight off the Pi 3.3 V** and stays cool. The E22-900 covers **850–930 MHz**, so it works in **EU868**, **US915** and the other 900 MHz regions. ⚠️ Meshtastic does **not** auto-cap the output to the EU legal limit — you must set the TX power yourself (see the **Power limits & regulations** section below).
 
 Small, focused, and it just works. 🎯
 
@@ -107,6 +107,22 @@ Then set the LoRa region and node role from any Meshtastic client (the phone app
 ```
 meshtastic --host localhost --set lora.region EU_868 --set device.role ROUTER
 ```
+
+## ⚠️ Power limits & regulations
+
+The E22-900MM22S can transmit at up to **22 dBm (~160 mW)**, and Meshtastic's `EU_868` preset will happily let it — on a Mesh-PI I measured `Final Tx power: 22 dBm`, **not** capped to any lower value.
+
+**In the EU, the 868 MHz ISM band is legally limited** — over most of the band that's **25 mW ERP (~14 dBm)**. Running the radio at 22 dBm where that isn't permitted is a **regulatory violation**, and it is entirely up to you to comply with your own country's rules.
+
+So on this board, **set the TX power yourself** — don't leave it at the region maximum. It's the `lora.tx_power` setting, in dBm:
+
+```
+meshtastic --host localhost --set lora.tx_power 14
+```
+
+(or in the phone app: **LoRa → Tx Power**). A value of `0` means *"use the region maximum"*, so set an explicit value — e.g. **14** for the EU — to stay within your legal limit.
+
+> **Disclaimer:** you alone are responsible for operating this board within your local radio regulations. The author is **not responsible** for any misuse, non-compliant configuration, or interference caused by running it above the legal power limit for your region.
 
 ## Status LEDs
 
