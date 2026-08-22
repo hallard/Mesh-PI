@@ -2,7 +2,9 @@
 
 [![Meshtastic compatible](https://img.shields.io/badge/Meshtastic-compatible-67ea94?logo=meshtastic&logoColor=white)](https://meshtastic.org)
 
-<img src="images/MeshPi-enclosure-outdoor.jpg" alt="Mesh-PI node in a 3D-printed enclosure with antenna, deployed outdoors" width="400">
+<p align="center">
+  <img src="images/MeshPi-enclosure-outdoor.jpg" alt="Mesh-PI node in a 3D-printed enclosure with antenna, deployed outdoors" width="530">
+</p>
 
 **Mesh-PI** is, as far as I know, the **smallest SX1262 LoRa board ever made for the Raspberry Pi**. It's built around the ultra-small **10×10 mm** [Ebyte **E22-900MM22S**][e22] (Semtech **SX1262**, 868/915 MHz) module — the board is barely bigger than the module itself.
 
